@@ -11,6 +11,7 @@ io.on('connection', function (socket) {
     console.log('Connected');
     socket.on('sendLocation', function (data) {
         console.log(`Received location: Latitude: ${data.latitude}, Longitude: ${data.longitude}`);
+        io.emit('receive-Location', {id:socket.id, data:data});
     });
 });
 
